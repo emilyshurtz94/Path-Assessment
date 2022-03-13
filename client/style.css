@@ -1,0 +1,17 @@
+header {
+    text-align:center;
+    display:flexbox;
+    justify-content:space-around;
+    flex-wrap: wrap;
+    padding:20px;
+    margin:auto;
+};
+
+
+
+#results{
+    text-align:center;
+    justify-content: center;
+    display:inline-flex
+}
+
