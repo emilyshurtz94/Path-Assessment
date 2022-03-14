@@ -13,24 +13,24 @@
 
 <body>
   <header id='header'>
-    <h1> Path Assessment</h1>
+    <h1 class='text-warning'> Path Assessment</h1>
 
   </header>
   <main>
 
-    <div class='container px-4' id=form>
+    <div class='container p-4' id=form>
       <h4> Please fill out the information to begin the assessment</h4>
       <form class="row gy-3">
         <div class="col-12">
           <label for="inputName" class="form-label">
-            <h2>Name</h2>
+            <h5>Name</h5>
           </label>
           <input type="text" class="form-control" id="inputName">
         </div>
 
         <div class="col-12">
           <label for="inputEmail" class="form-label">
-            <h2>Email</h2>
+            <h5>Email</h5>
           </label>
           <input type="email" class="form-control" id="inputEmail">
         </div>
@@ -40,10 +40,10 @@
       </form>
     </div>
 
-    <div class='quiz-container' id='quiz' style='display:none'>
-      <h4> This assessment will help you find which path is best for you! Please answer each question honestly so
-        we can provide you with the best possible help for you to succeed!</h4>
-      <div class='row'>
+    <div class='quiz-container p-5 m-3' id='quiz'style='display:none' >
+      <h2> This assessment will help you find which path is best for you! Please answer each question honestly so
+        we can provide you with the best possible help for you to succeed!</h2>
+      <div class='row p-4'>
         <div class='col-12'>
           <h3>Which is more important to me?</h3>
           <div class="form-check">
@@ -157,8 +157,8 @@
       </div>
     </div>
 
-    <div class="container" id='results' style="display:none">
-      <div class="row gy-2">
+    <div class="container p-5" id='results'style="display:none" >
+      <div class="row gy-2 p-6">
         <h2>Your Results Are: </h2>
         <h3 id='agency-score'></h3>
         <h3 id='knowledge-score'></h3>

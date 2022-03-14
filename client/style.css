@@ -5,6 +5,11 @@ header {
     flex-wrap: wrap;
     padding:20px;
     margin:auto;
+    background-color: rgb(8, 8, 135);
+    text-decoration: underline;
+    text-decoration-color: white;
+    opacity: 80%;
+
 };
 
 
