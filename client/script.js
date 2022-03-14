@@ -4,13 +4,12 @@ const formEl = document.getElementById('form');
 const quizEl = document.getElementById('quiz');
 const resultsEl = document.getElementById('results');
 
-
 //Button Selectors
 const startBtn = document.getElementById('start');
 const endBtn = document.getElementById('end');
 
 // Link to Google Sheet Excel Sheet- Post route
-const url ='https://script.google.com/macros/s/AKfycbxgcykzgwBUoPOEYWdmq70rDTtuv2jIVgB0CTDv-0_PtCW4_9N_aFSeL_EkYfjSyoQ/exec'
+const url ='https://script.google.com/macros/s/AKfycbwW7XQyI35rLEEqHsIY2mSgHEASbPB-em19chn8pac2Vdi8OmylxCayc9fE1V8h/exec'
 
 // Input Elements
 const nameEl = document.getElementById('inputName');
@@ -39,7 +38,6 @@ const longEl = document.getElementById('long');
 const potentialEl = document.getElementById('potential');
 const sellableEl = document.getElementById('sellable');
 
-
 function startQuiz() {
     quizEl.style.display="block";
     formEl.style.display="none";
@@ -54,15 +52,13 @@ function sendData(){
         method: 'POST',
         body: formData
     }).then(rep => rep.json())
-    .then(data =>{
-        console.log(data)
-    })
 }
 
 function calculateScore (){
 let referral= 0;
 let knowledge= 0;
 let agency= 0;
+
  if (securityEl.checked){
     agency+=2;
      knowledge+=1;
@@ -134,36 +130,32 @@ let agency= 0;
  let agencyEl= Math.round((agency/26)*100);
  let knowledgeEl= Math.round((knowledge/24)*100);
  let referralEl= Math.round((referral/25)*100);
-
+ 
  const agencyScoreEl= document.getElementById('agency-score');
  agencyScoreEl.innerText = agencyScoreEl.innerText+ "Agency is " + `${agencyEl}` +"%"
-const knowledgeScoreEl= document.getElementById('knowledge-score');
-knowledgeScoreEl.innerText = knowledgeScoreEl.innerText+ "Knowledge is " + `${knowledgeEl}` +"%"
-const referralScoreEl= document.getElementById('referral-score');
-referralScoreEl.innerText = referralScoreEl.innerText+ "Referral is " + `${referralEl}` +"%"
+ const knowledgeScoreEl= document.getElementById('knowledge-score');
+ knowledgeScoreEl.innerText = knowledgeScoreEl.innerText+ "Knowledge is " + `${knowledgeEl}` +"%"
+ const referralScoreEl= document.getElementById('referral-score');
+ referralScoreEl.innerText = referralScoreEl.innerText+ "Referral is " + `${referralEl}` +"%"
  
+     const formData = new FormData();
+     formData.append('agency', `${agencyEl}`);
+     formData.append('knowledge', `${knowledgeEl}`);
+     formData.append('referral', `${referralEl}`)
+     fetch(url,{
+         method: 'POST',
+         body: formData
+        }).then(rep => rep.json())
+        .then(data =>{
+            console.log(data)
+        })
+    
 }
-
-function sendScore(){
-    const formData = new FormData();
-    formData.append('agency', `${agencyEl}`);
-    formData.append('knowledge', `${knowledgeEl}`);
-    formData.append('referral', `${referralEl}`)
-    fetch(url,{
-        method: 'POST',
-        body: formData
-    }).then(rep => rep.json())
-    .then(data =>{
-        console.log(data)
-    })
-}
-
-startBtn.onclick =() => {
-    startQuiz();
-    sendData();
-}
+    startBtn.onclick =() => {
+        startQuiz();
+        sendData();
+    }
 
 endBtn.onclick = () => {
-    calculateScore()
-    sendScore();
+    calculateScore();
 }
