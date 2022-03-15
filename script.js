@@ -9,7 +9,7 @@ const startBtn = document.getElementById('start');
 const endBtn = document.getElementById('end');
 
 // Link to Google Sheet Excel Sheet- Post route
-const url ='https://script.google.com/macros/s/AKfycbwW7XQyI35rLEEqHsIY2mSgHEASbPB-em19chn8pac2Vdi8OmylxCayc9fE1V8h/exec'
+const url ='https://script.google.com/macros/s/AKfycby88NzNMh3HEiVJXDygvDFkHPqmXfC7WQ4pRKycDpd2Cha-PycyEtN3TJaSP-fnBjA/exec'
 
 // Input Elements
 const nameEl = document.getElementById('inputName');
